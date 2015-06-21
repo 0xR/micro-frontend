@@ -9,4 +9,4 @@ app.use('/', proxy(url.parse('http://localhost:3000')));
 
 app.listen(5000);
 
-console.log('Listening on port http://localhost:5000/');
+console.log('Listening on http://localhost:5000/');
