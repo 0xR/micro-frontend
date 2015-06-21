@@ -7,6 +7,10 @@ angular.module('clientsideIntegration', ['ui.router'])
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
+      })
+      .state('checkout', {
+        url: '/checkout',
+        templateUrl: 'app/checkout/checkout.html'
       });
 
     $urlRouterProvider.otherwise('/');

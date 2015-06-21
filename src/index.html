@@ -24,8 +24,18 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <div class="container">
 
-    <div ui-view></div>
+      <div ng-include="'app/components/navbar/navbar.html'"></div>
+      <div ui-view></div>
+
+      <hr>
+
+      <div class="footer">
+        <p>With ♥ from <a href="https://twitter.com/Swiip">@Swiip</a></p>
+      </div>
+
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
