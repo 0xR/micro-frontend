@@ -1,0 +1,29 @@
+{
+  "backend": [{
+    "pattern": ".*",
+    "target":"http://localhost:3000",
+    "host":"localhost",
+    "ttl":"0s",
+    "quietFailure":false,
+    "leaveContentOnFail":false,
+    "dontPassUrl":false,
+    "contentTypes":["html"]
+  }],
+  "parameters": {
+    "servers": {
+      "checkout": "http://localhost:3030"
+    }
+  },
+  "environment":{
+    "name":"development"
+  },
+  "hogan":{
+    "delimiters":"{{ }}"
+  },
+  "cache": {
+    "engine": "redis",
+    "url":"redis://localhost:6379?db=0",
+    "apiEnabled": true
+  },
+  "followRedirect": false
+}

@@ -1,3 +1,5 @@
-<h1>Checkout integrated using serverside integration</h1>
-<p>This is the checkout page placeholder.</p>
-<span ng-bind="checkoutCtrl.message"></span>
+<p>server side</p>
+<div cx-url='{{ server:checkout }}/checkout.html' cx-cache-key='checkout' cx-cache-ttl='10s' cx-timeout="1s" cx-replace-outer="true" class='block'>
+  <h1>Checkout integrated using serverside integration</h1>
+  <p>This is the checkout page placeholder.</p>
+</div>

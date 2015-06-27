@@ -4,6 +4,7 @@ var proxy = require('proxy-middleware');
 
 var app = connect();
 app.use('/app/checkout-client', proxy(url.parse('http://localhost:3030')));
+app.use('/app/checkout-server', proxy(url.parse('http://localhost:5050/app/checkout-server')));
 app.use('/', proxy(url.parse('http://localhost:3000')));
 
 
