@@ -3,7 +3,7 @@ var url = require('url');
 var proxy = require('proxy-middleware');
 
 var app = connect();
-app.use('/app/checkout', proxy(url.parse('http://localhost:3030')));
+app.use('/app/checkout-client', proxy(url.parse('http://localhost:3030')));
 app.use('/', proxy(url.parse('http://localhost:3000')));
 
 
