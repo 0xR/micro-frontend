@@ -1,13 +1,30 @@
-var connect = require('connect');
-var url = require('url');
-var proxy = require('proxy-middleware');
+var http = require('http'),
+  httpProxy = require('http-proxy');
 
-var app = connect();
-app.use('/app/checkout-client', proxy(url.parse('http://localhost:3030')));
-app.use('/app/checkout-server', proxy(url.parse('http://localhost:5050/app/checkout-server')));
-app.use('/', proxy(url.parse('http://localhost:3000')));
+//
+// Create a proxy server with custom application logic
+//
+var proxy = httpProxy.createProxyServer({});
 
+//
+// Create your custom server and just call `proxy.web()` to proxy
+// a web request to the target passed in the options
+// also you can use `proxy.ws()` to proxy a websockets request
+//
+var server = http.createServer(function (req, res) {
+  // You can define here your custom logic to handle the request
+  // and then proxy the request.
+  if (req.url.indexOf('/app/checkout-client/') === 0) {
+    req.url = req.url.replace('/app/checkout-client/', '');
+    proxy.web(req, res, {target: 'http://127.0.0.1:3030'});
+  } else if (req.url === '/app/checkout-server/checkout.html') {
+    proxy.web(req, res, {target: 'http://127.0.0.1:5050'});
+  } else if (req.url === '/server-side.html') {
+    proxy.web(req, res, {target: 'http://127.0.0.1:5050'});
+  } else {
+    proxy.web(req, res, {target: 'http://127.0.0.1:3000'});
+  }
+});
 
-app.listen(5000);
-
-console.log('Listening on http://localhost:5000/');
+console.log("listening on port 5000");
+server.listen(5000);

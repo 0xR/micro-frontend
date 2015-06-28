@@ -9,7 +9,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "connect": "^3.4.0",
-    "proxy-middleware": "^0.13.0"
+    "http-proxy": "^1.11.1"
   }
 }
