@@ -18,17 +18,6 @@ function createEventHandler() {
 }
 var cxEventHandler = createEventHandler();
 
-config.functions = {
-  'selectGoogle': function(req, variables) {
-    if(variables['query:google']) { return true; }
-  },
-  'handle403': function(req, res, variables, data) {
-    if (res.headersSent) { return; } // too late to redirect
-    res.writeHead(403, {'Content-Type': 'text/html'});
-    res.end('CX says no, redirect to: ' + data.redirect + ' , return here: ' + variables['url:href']);
-  }
-};
-
 config.environment = process.env.NODE_ENV || 'development';
 config.minified = config.environment !== 'development';
 
