@@ -19,8 +19,6 @@ var server = http.createServer(function (req, res) {
     proxy.web(req, res, {target: 'http://127.0.0.1:3030'});
   } else if (req.url === '/app/checkout-server/checkout.html') {
     proxy.web(req, res, {target: 'http://127.0.0.1:5050'});
-  } else if (req.url === '/server-side.html') {
-    proxy.web(req, res, {target: 'http://127.0.0.1:5050'});
   } else {
     proxy.web(req, res, {target: 'http://127.0.0.1:3000'});
   }
