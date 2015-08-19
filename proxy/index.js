@@ -6,6 +6,10 @@ var http = require('http'),
 //
 var proxy = httpProxy.createProxyServer({});
 
+function handleError(error) {
+  console.error(error);
+}
+
 //
 // Create your custom server and just call `proxy.web()` to proxy
 // a web request to the target passed in the options
@@ -14,14 +18,7 @@ var proxy = httpProxy.createProxyServer({});
 var server = http.createServer(function (req, res) {
   // You can define here your custom logic to handle the request
   // and then proxy the request.
-  if (req.url.indexOf('/app/checkout-client/') === 0) {
-    req.url = req.url.replace('/app/checkout-client/', '');
-    proxy.web(req, res, {target: 'http://127.0.0.1:3030'});
-  } else if (req.url === '/app/checkout-server/checkout.html') {
-    proxy.web(req, res, {target: 'http://127.0.0.1:5050'});
-  } else {
-    proxy.web(req, res, {target: 'http://127.0.0.1:3000'});
-  }
+  proxy.web(req, res, { target: 'http://127.0.0.1:5060' }, handleError);
 });
 
 console.log("listening on port 5000");

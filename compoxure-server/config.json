@@ -10,10 +10,7 @@
     "contentTypes":["html"]
   }],
   "parameters": {
-    "servers": {
-      "checkout": "http://localhost:3030",
-      "local": "http://localhost:3000"
-    }
+    // add server config here, see: https://github.com/tes/compoxure#configuration
   },
   "environment":{
     "name":"development"
@@ -23,8 +20,6 @@
   },
   "cache": {
     "engine": "redis",
-    "url":"redis://localhost:6379?db=0",
-    "apiEnabled": true
   },
   "followRedirect": false
 }
