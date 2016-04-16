@@ -5,8 +5,7 @@ angular.module('clientsideIntegration', ['ui.router', 'oc.lazyLoad'])
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'app/main/main.html'
       })
       .state('checkout-client', {
         url: '/checkout-client',
