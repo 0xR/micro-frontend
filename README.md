@@ -19,7 +19,7 @@ make a simple web server: `npm install -g nws`)
 7. See the results on `localhost:5000`
 8. (optional) update the load balancer to load in a service from a different participant.
 
-Exercise 2
+Exercise 3
 ==========
 We realised that we need to integrate the checkout page using server side integration. We are going to use compoxure to
 do this.
