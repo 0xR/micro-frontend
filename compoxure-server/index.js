@@ -28,8 +28,8 @@ server.use(cookieParser());
 if(process.env.logging !== 'false') { server.use(morgan('combined')); }
 server.use(compoxureMiddleware);
 
-server.listen(5050, 'localhost', function() {
-  console.log('Example compoxure server on http://localhost:5050');
+server.listen(5000, 'localhost', function() {
+  console.log('Example compoxure server on http://localhost:5000');
 });
 
 
