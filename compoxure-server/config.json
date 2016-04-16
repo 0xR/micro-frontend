@@ -10,7 +10,8 @@
     "contentTypes":["html"]
   }],
   "parameters": {
-    // add server config here, see: https://github.com/tes/compoxure#configuration
+    // parameters are usable in the compoxure template blocks: {{ myParameter }}
+    // add the target server config here, also see: https://github.com/tes/compoxure#configuration
   },
   "environment":{
     "name":"development"
@@ -19,7 +20,7 @@
     "delimiters":"{{ }}"
   },
   "cache": {
-    "engine": "redis",
+    "engine": "redis"
   },
   "followRedirect": false
 }
