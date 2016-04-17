@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('clientsideIntegration', ['ui.router', 'oc.lazyLoad', 'ngSanitize'])
+angular.module('clientsideIntegration', ['ui.router', 'oc.lazyLoad'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
