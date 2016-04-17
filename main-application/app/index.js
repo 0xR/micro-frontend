@@ -1,11 +1,22 @@
 'use strict';
 
-angular.module('clientsideIntegration', ['ui.router', 'oc.lazyLoad'])
+angular.module('clientsideIntegration', ['ui.router', 'oc.lazyLoad', 'ngSanitize'])
   .config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
         url: '/',
         templateUrl: 'app/main/main.html'
+      })
+      .state('oembed-demo', {
+        url: '/oembed-demo',
+        templateUrl: 'app/oembed-demo/oembed.html',
+        controller: 'OembedCtrl as oembedCtrl',
+        resolve: { // Any property in resolve should return a promise and is executed before the view is loaded
+          loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+            // you can lazy load files for an existing module
+            return $ocLazyLoad.load('app/oembed-demo/oembed.controller.js');
+          }]
+        }
       })
       .state('checkout-client', {
         url: '/checkout-client',
